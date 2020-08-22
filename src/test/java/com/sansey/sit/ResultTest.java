@@ -9,13 +9,15 @@ import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 
 class ResultTest {
-	@Test
-	void test() {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		new Result().printTo(new PrintStream(baos));
-		assertEquals(
-			"Result" + System.lineSeparator(), 
-			baos.toString(StandardCharsets.UTF_8)
-		);
-	}
+  @Test
+  void test() {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    new Result().printTo(
+      new PrintStream(baos)
+    );
+    assertEquals(
+      "Result" + System.lineSeparator(),
+      baos.toString(StandardCharsets.UTF_8)
+    );
+  }
 }
