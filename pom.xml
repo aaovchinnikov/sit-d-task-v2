@@ -19,10 +19,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>5.6.2</version>
-			<scope>test</scope>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.1.1</version>
+			<type>maven-plugin</type>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -31,15 +31,61 @@
 			<type>maven-plugin</type>
 		</dependency>
 		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.6.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-surefire-plugin</artifactId>
 			<version>3.0.0-M5</version>
 			<type>maven-plugin</type>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>validate google_checks</id>
+						<configuration>
+							<!-- Use Google checks ruleset instead of Sun checks (sun_checks.xml) -->
+							<configLocation>google_checks.xml</configLocation>
+							<encoding>UTF-8</encoding>
+							<logViolationsToConsole>true</logViolationsToConsole>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+							<linkXRef>false</linkXRef>
+						</configuration>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>validate sun_checks</id>
+						<configuration>
+							<!-- Use Sun checks ruleset -->
+							<configLocation>sun_checks.xml</configLocation>
+							<encoding>UTF-8</encoding>
+							<logViolationsToConsole>true</logViolationsToConsole>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+							<linkXRef>false</linkXRef>
+						</configuration>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -72,6 +118,15 @@
 						<version>${pmdVersion}</version>
 					</dependency>
 				</dependencies>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -87,6 +142,18 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
 				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.1.1</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>

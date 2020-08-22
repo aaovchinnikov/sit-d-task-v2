@@ -14,7 +14,7 @@ class ResultTest {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		new Result().printTo(new PrintStream(baos));
 		assertEquals(
-			"Result",// + System.lineSeparator(), 
+			"Result" + System.lineSeparator(), 
 			baos.toString(StandardCharsets.UTF_8)
 		);
 	}
