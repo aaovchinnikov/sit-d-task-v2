@@ -51,17 +51,19 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.1.1</version>
+				<configuration>
+					<consoleOutput>true</consoleOutput>
+					<encoding>UTF-8</encoding>
+					<logViolationsToConsole>true</logViolationsToConsole>
+					<failsOnError>true</failsOnError>
+					<linkXRef>false</linkXRef>
+				</configuration>
 				<executions>
 					<execution>
 						<id>validate google_checks</id>
 						<configuration>
 							<!-- Use Google checks ruleset instead of Sun checks (sun_checks.xml) -->
 							<configLocation>google_checks.xml</configLocation>
-							<encoding>UTF-8</encoding>
-							<logViolationsToConsole>true</logViolationsToConsole>
-							<consoleOutput>true</consoleOutput>
-							<failsOnError>true</failsOnError>
-							<linkXRef>false</linkXRef>
 						</configuration>
 						<phase>validate</phase>
 						<goals>
@@ -73,11 +75,6 @@
 						<configuration>
 							<!-- Use Sun checks ruleset -->
 							<configLocation>sun_checks.xml</configLocation>
-							<encoding>UTF-8</encoding>
-							<logViolationsToConsole>true</logViolationsToConsole>
-							<consoleOutput>true</consoleOutput>
-							<failsOnError>true</failsOnError>
-							<linkXRef>false</linkXRef>
 						</configuration>
 						<phase>validate</phase>
 						<goals>
