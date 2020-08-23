@@ -12,8 +12,13 @@ public final class Main {
 
   /**
    * The main() method - starting point of application.
+   * @param args - command-line arguments of application
    */
-  public static void main() {
-    System.out.println("Hello World!");
+  public static void main(final String[] args) {
+    new Result(
+      new NotNullPairs(null)
+    ).printTo(
+      System.out
+    );
   }
 }

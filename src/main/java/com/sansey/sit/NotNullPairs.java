@@ -29,9 +29,9 @@ public class NotNullPairs implements Pairs {
   @Override
   public List<Pair> asList() {
     if (list == null) {
-      throw new IllegalArgumentException("Null passed as argument \"p\" of "
-        + "constructor Result(final List<Pair> p). "
-        + "Argument \"p\" should be non-null.");
+      throw new IllegalArgumentException("Null passed as argument \"l\" of "
+        + "constructor NotNullPairs(final List<Pair> l). "
+        + "Argument \"l\" should be non-null.");
     } else {
       return list;
     }

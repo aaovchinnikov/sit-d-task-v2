@@ -13,6 +13,8 @@ public final class Result {
   /**
    * Main constructor.
    * @param p - {@link Pairs} to be used as result.
+   *     Use {@link NotNullPairs} decorator to protect from null
+   *     passed as argument
    */
   public Result(final Pairs p) {
     this.pairs = p;
