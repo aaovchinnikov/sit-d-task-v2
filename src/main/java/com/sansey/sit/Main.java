@@ -15,10 +15,11 @@ public final class Main {
    * @param args - command-line arguments of application
    */
   public static void main(final String[] args) {
-    new Result(
-        new NotNullPairs(null)
-    ).printTo(
-        System.out
-    );
+    new AllPairs(
+        new ValidatedSkis(
+            new int[] {}
+        ),
+        new ValidatedDelta(-1)
+    ).asList();
   }
 }

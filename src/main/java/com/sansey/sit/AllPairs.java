@@ -40,7 +40,8 @@ public final class AllPairs implements Pairs {
                 this.skis.asArray()[i] - this.skis.asArray()[j]
             ) <= this.delta.asInt()
         ) {
-          list.add(new Pair(i, j));
+          // Indexes in Task starts from 1 instead of 0.
+          list.add(new Pair(i + 1, j + 1));
         }
       }
     }
