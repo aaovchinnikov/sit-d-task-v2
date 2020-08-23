@@ -16,9 +16,9 @@ public final class Main {
    */
   public static void main(final String[] args) {
     new Result(
-      new NotNullPairs(null)
+        new NotNullPairs(null)
     ).printTo(
-      System.out
+        System.out
     );
   }
 }
