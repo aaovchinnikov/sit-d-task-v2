@@ -43,4 +43,15 @@ class AllPairsTest {
       );
     }
   }
+  
+  @Test
+  void testThreePairs() {
+    List<Pair> list = new AllPairs(
+        new ValidatedSkis(
+            new int[] {1, 2, 3}
+        ),
+        new ValidatedDelta(2)
+    ).asList();
+    assertEquals(3, list.size());
+  }
 }
