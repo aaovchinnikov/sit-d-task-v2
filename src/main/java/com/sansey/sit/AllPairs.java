@@ -30,6 +30,15 @@ public final class AllPairs implements Pairs {
     this.delta = d;
   }
 
+  /**
+   * Builds and returns all possible {@link Pair}s built from array of ski
+   * sizes, where pair is formed between skies, whose sizes differs less or
+   * equal to provided {@link #delta}. All pairs are truly unique:
+   * for any different <b>a</b> and <b>b</b> ski there is only
+   * (a,b)-pair; (b,a)-pair, (a,a)-pair or (b,b)-pair are not included.<br />
+   * Returned {@link List} is not modifiable.
+   * @return - unmodifiable {@link List} of ski pairs
+   */
   @Override
   public List<Pair> asList() {
     final List<Pair> list = new LinkedList<>();
