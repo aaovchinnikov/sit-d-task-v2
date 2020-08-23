@@ -15,7 +15,7 @@ class ResultTest {
   void testPrintZeroPairs() {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     new Result(
-      new NotNullPairs(
+      new ValidatedPairs(
         Collections.emptyList()
       )
     ).printTo(
@@ -31,7 +31,7 @@ class ResultTest {
   void testPrintTwoPairs() {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     new Result(
-      new NotNullPairs(
+      new ValidatedPairs(
         Arrays.asList(
           new Pair(1, 2),
           new Pair(3, 4)

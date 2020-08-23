@@ -8,13 +8,13 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-class NotNullPairsTest {
+class ValidatedPairsTest {
   @Test
   void testNull() {
     assertThrows(
       IllegalArgumentException.class, 
       () -> { 
-        new NotNullPairs(null).asList();
+        new ValidatedPairs(null).asList();
       }
     );
   }
@@ -27,7 +27,7 @@ class NotNullPairsTest {
     );
     assertEquals(
       origin,
-      new NotNullPairs(origin).asList()
+      new ValidatedPairs(origin).asList()
     );
   }
 }

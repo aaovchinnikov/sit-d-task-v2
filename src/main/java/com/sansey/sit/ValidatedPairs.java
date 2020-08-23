@@ -7,7 +7,7 @@ import java.util.List;
  * and checks that encapsulated list is not null.
  * @author Alexander Ovchinnikov
  */
-public class NotNullPairs implements Pairs {
+public class ValidatedPairs implements Pairs {
   /** Encapsulated list. */
   private final List<Pair> list;
 
@@ -15,7 +15,7 @@ public class NotNullPairs implements Pairs {
    * Main constructor.
    * @param l - {@link List} to be encapsulated.
    */
-  public NotNullPairs(final List<Pair> l) {
+  public ValidatedPairs(final List<Pair> l) {
     this.list = l;
   }
 
