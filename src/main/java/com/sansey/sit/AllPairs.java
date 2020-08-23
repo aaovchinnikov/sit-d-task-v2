@@ -20,8 +20,10 @@ public final class AllPairs implements Pairs {
 
   /**
    * Main constructor.
-   * @param s - Skis to build pairs from
-   * @param d - Delta to compare skis with
+   * @param s - Skis to build pairs from.
+   *     Use {@link ValidatedSkis} decorator to validate passed values
+   * @param d - Delta to compare skis with.
+   *     Use {@link ValidatedDelta} decorator to validate passed values
    */
   public AllPairs(final Skis s, final Delta d) {
     this.skis = s;
