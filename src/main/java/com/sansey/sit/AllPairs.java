@@ -14,26 +14,30 @@ import java.util.List;
  */
 public final class AllPairs implements Pairs {
   /** Skis to build pairs from. */
-  private final int[] skis;
+  private final Skis skis;
   /** Maximal difference to from a pair. */
-  private final int delta;
+  private final Delta delta;
 
   /**
    * Main constructor.
-   * @param array - int array of skis length
-   * @param d - maximal difference of skis to form a pair
+   * @param s - Skis to build pairs from
+   * @param d - Delta to compare skis with
    */
-  public AllPairs(final int[] array, final int d) {
-    this.skis = array;
+  public AllPairs(final Skis s, final Delta d) {
+    this.skis = s;
     this.delta = d;
   }
 
   @Override
   public List<Pair> asList() {
     final List<Pair> list = new LinkedList<>();
-    for (int i = 0; i < this.skis.length; i++) {
-      for (int j = i + 1; j < this.skis.length; j++) {
-        if (Math.abs(this.skis[i] - this.skis[j]) <= this.delta) {
+    for (int i = 0; i < this.skis.asArray().length; i++) {
+      for (int j = i + 1; j < this.skis.asArray().length; j++) {
+        if (
+            Math.abs(
+                this.skis.asArray()[i] - this.skis.asArray()[j]
+            ) <= this.delta.asInt()
+        ) {
           list.add(new Pair(i, j));
         }
       }
