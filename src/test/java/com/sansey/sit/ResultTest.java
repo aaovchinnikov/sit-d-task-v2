@@ -1,6 +1,6 @@
 package com.sansey.sit;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,20 +12,12 @@ import org.junit.jupiter.api.Test;
 
 class ResultTest {
   @Test
-  void testNull() {
-    assertThrows(
-      IllegalArgumentException.class, 
-      () -> { 
-        new Result(null); 
-      }
-    );
-  }
-  
-  @Test
   void testPrintZeroPairs() {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     new Result(
-      Collections.emptyList()
+      new NotNullPairs(
+        Collections.emptyList()
+      )
     ).printTo(
       new PrintStream(baos)
     );
@@ -39,9 +31,11 @@ class ResultTest {
   void testPrintTwoPairs() {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     new Result(
-      Arrays.asList(
-        new Pair(1, 2),
-        new Pair(3, 4)
+      new NotNullPairs(
+        Arrays.asList(
+          new Pair(1, 2),
+          new Pair(3, 4)
+        )
       )
     ).printTo(
       new PrintStream(baos)
